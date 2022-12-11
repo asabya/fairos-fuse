@@ -43,6 +43,6 @@ linux-binary: export CC=x86_64-linux-gnu-gcc
 linux-binary: export CXX=x86_64-linux-gnu-g++
 linux-binary: dist FORCE
 	$(GO) version
-	wails build -trimpath -ldflags "$(LDFLAGS) -extldflags '-static' -linkmode=external"
+	wails build -trimpath -ldflags "$(LDFLAGS) -extldflags '-lc -lstdc++ -static' -linkmode=external"
 
 FORCE:
