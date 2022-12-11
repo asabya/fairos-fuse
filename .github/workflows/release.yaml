@@ -87,26 +87,13 @@ jobs:
             libfuse-dev \
             autoconf \
             automake \
-            bc \
-            python \
             libwebkit2gtk-4.0-dev \
-            jq \
-            binfmt-support \
-            binutils-multiarch \
             build-essential \
             clang \
             gcc \
             g++ \
-            libarchive-tools \
             gdb \
             mingw-w64 \
-            crossbuild-essential-amd64 \
-            crossbuild-essential-arm64 \
-            crossbuild-essential-armel \
-            crossbuild-essential-armhf \
-            crossbuild-essential-mipsel \
-            crossbuild-essential-ppc64el \
-            crossbuild-essential-s390x \
             devscripts \
             libtool \
             llvm \
