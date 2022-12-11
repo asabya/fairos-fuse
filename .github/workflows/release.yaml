@@ -103,7 +103,8 @@ jobs:
             musl-tools \
             libc6-dev \
             gcc-x86-64-linux-gnu \
-            libc6-dev-amd64-cross
+            libc6-dev-amd64-cross \
+            linux-headers-$(uname -m)
         if: matrix.os == 'ubuntu-latest'
 
       - name: Install Libraries on macOS
