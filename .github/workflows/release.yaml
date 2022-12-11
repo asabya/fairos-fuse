@@ -21,6 +21,7 @@ jobs:
         include:
           - job_name: linux
             os: ubuntu-latest
+            build_flags: '-include "^linux/"'
             go: '1.19'
 
           - job_name: mac_amd64
@@ -143,7 +144,7 @@ jobs:
 
       - name: Build
         run: |
-          CGO_ENABLED=1 CC=/usr/bin/musl-gcc wails build -trimpath -ldflags "$(LDFLAGS) -extldflags '-I /usr/include/linux/errno.h -static' -linkmode=external"
+          CGO_ENABLED=1 CC=/usr/bin/musl-gcc wails build -trimpath -ldflags "-extldflags '-static' -linkmode=external"
         if: matrix.os == 'ubuntu-latest'
 
       - uses: actions/upload-artifact@v3
