@@ -112,7 +112,8 @@ jobs:
             libgmp-dev \
             llvm-dev \
             uuid-dev \
-            binutils-multiarch-dev
+            binutils-multiarch-dev \
+            linux-libc-dev
         if: matrix.os == 'ubuntu-latest'
 
       - name: Install Libraries on macOS
