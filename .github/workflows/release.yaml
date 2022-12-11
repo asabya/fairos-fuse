@@ -79,6 +79,7 @@ jobs:
           sudo modprobe fuse
           sudo chmod 666 /dev/fuse
           sudo chown root:$USER /etc/fuse.conf
+          sudo apt-get update
           sudo apt-get install --no-install-recommends -y -q \
             fuse \
             rpm \
