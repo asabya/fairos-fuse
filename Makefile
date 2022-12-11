@@ -39,7 +39,8 @@ binary: dist FORCE
 
 .PHONY: linux-binary
 linux-binary: export CGO_ENABLED=1
-linux-binary: export CC=musl-gcc
+linux-binary: export CC=x86_64-linux-gnu-gcc
+linux-binary: export CXX=x86_64-linux-gnu-g++
 linux-binary: dist FORCE
 	$(GO) version
 	wails build -trimpath -ldflags "$(LDFLAGS) -extldflags '-static' -linkmode=external"
