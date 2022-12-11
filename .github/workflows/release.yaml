@@ -22,12 +22,6 @@ jobs:
           - job_name: linux
             os: ubuntu-latest
             go: '1.19'
-            gotags: cmount
-            build_flags: '-include "^linux/"'
-            check: true
-            quicktest: true
-            racequicktest: true
-            deploy: true
 
           - job_name: mac_amd64
             os: macos-11
@@ -85,7 +79,41 @@ jobs:
           sudo modprobe fuse
           sudo chmod 666 /dev/fuse
           sudo chown root:$USER /etc/fuse.conf
-          sudo apt-get install fuse libfuse-dev rpm pkg-config build-essential libgtk-3-dev libwebkit2gtk-4.0-dev musl-tools
+          sudo apt-get install --no-install-recommends -y -q \
+            fuse \
+            rpm \
+            pkg-config \
+            libgtk-3-dev \
+            libfuse-dev \
+            autoconf \
+            automake \
+            bc \
+            python \
+            libwebkit2gtk-4.0-dev \
+            jq \
+            binfmt-support \
+            binutils-multiarch \
+            build-essential \
+            clang \
+            gcc \
+            g++ \
+            libarchive-tools \
+            gdb \
+            mingw-w64 \
+            crossbuild-essential-amd64 \
+            crossbuild-essential-arm64 \
+            crossbuild-essential-armel \
+            crossbuild-essential-armhf \
+            crossbuild-essential-mipsel \
+            crossbuild-essential-ppc64el \
+            crossbuild-essential-s390x \
+            devscripts \
+            libtool \
+            llvm \
+            multistrap \
+            patch \
+            mercurial \
+            musl-tools
         if: matrix.os == 'ubuntu-latest'
 
       - name: Install Libraries on macOS
