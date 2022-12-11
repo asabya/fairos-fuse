@@ -37,4 +37,10 @@ binary: dist FORCE
 	$(GO) version
 	wails build -trimpath -ldflags "$(LDFLAGS)"
 
+.PHONY: linux-binary
+linux-binary: export CGO_ENABLED=1
+linux-binary: dist FORCE
+	$(GO) version
+	wails build -trimpath -ldflags "$(LDFLAGS) -extldflags '-lc -lstdc++ --static' -linkmode=external"
+
 FORCE:
