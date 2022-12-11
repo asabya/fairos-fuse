@@ -85,7 +85,7 @@ jobs:
           sudo modprobe fuse
           sudo chmod 666 /dev/fuse
           sudo chown root:$USER /etc/fuse.conf
-          sudo apt-get install fuse libfuse rpm pkg-config build-essential libgtk-3 libwebkit2gtk-4.0
+          sudo apt-get install fuse libfuse rpm pkg-config build-essential libgtk-3 libwebkit2gtk-4.0 glibc-static.x86_64 libstdc++-static
         if: matrix.os == 'ubuntu-latest'
 
       - name: Install Libraries on macOS
@@ -140,6 +140,7 @@ jobs:
 
       - name: Build
         run: |
+          export CXXFLAGS="-stdlib=libstdc++" CC=/usr/bin/gcc CXX=/usr/bin/g++
           make linux-binary
         if: matrix.os == 'ubuntu-latest'
 
