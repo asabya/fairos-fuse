@@ -101,9 +101,17 @@ jobs:
             patch \
             mercurial \
             musl-tools \
-            libc6-dev \
-            gcc-x86-64-linux-gnu \
-            libc6-dev-amd64-cross
+            autotools-dev \
+            libxml2-dev \
+            lzma-dev \
+            libssl-dev \
+            zlib1g-dev \
+            libmpc-dev \
+            libmpfr-dev \
+            libgmp-dev \
+            llvm-dev \
+            uuid-dev \
+            binutils-multiarch-dev
         if: matrix.os == 'ubuntu-latest'
 
       - name: Install Libraries on macOS
