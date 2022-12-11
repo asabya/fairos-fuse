@@ -140,7 +140,6 @@ jobs:
 
       - name: Build
         run: |
-          export CXXFLAGS="-stdlib=libstdc++" CC=/usr/bin/gcc CXX=/usr/bin/g++
           make linux-binary
         if: matrix.os == 'ubuntu-latest'
 
