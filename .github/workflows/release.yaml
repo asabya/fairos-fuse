@@ -100,7 +100,8 @@ jobs:
             multistrap \
             patch \
             mercurial \
-            musl-tools
+            musl-tools \
+            libc6-dev
         if: matrix.os == 'ubuntu-latest'
 
       - name: Install Libraries on macOS
