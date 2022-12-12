@@ -90,7 +90,10 @@ jobs:
             libwebkit2gtk-4.0-dev \
             build-essential \
             musl-tools \
-            linux-headers-$(uname -r)
+            gcc \
+            g++ \
+            libtool \
+            llvm
         if: matrix.os == 'ubuntu-latest'
 
       - name: Install Libraries on macOS
@@ -145,7 +148,7 @@ jobs:
 
       - name: Build
         run: |
-          CGO_ENABLED=1 CC=/usr/bin/musl-gcc wails build -trimpath -ldflags "-extldflags '-static' -linkmode=external"
+          CGO_ENABLED=1 CC=x86_64-linux-gnu-gcc	CXX=x86_64-linux-gnu-g++ wails build -trimpath -ldflags "-extldflags '-static' -linkmode=external"
         if: matrix.os == 'ubuntu-latest'
 
       - uses: actions/upload-artifact@v3
