@@ -148,7 +148,7 @@ jobs:
 
       - name: Build
         run: |
-          CGO_ENABLED=1 CC=x86_64-linux-gnu-gcc	CXX=x86_64-linux-gnu-g++ wails build -trimpath -ldflags "-extldflags '-static' -linkmode=external"
+          CGO_ENABLED=1 wails build -trimpath -ldflags "-extldflags '-static' -linkmode=external"
         if: matrix.os == 'ubuntu-latest'
 
       - uses: actions/upload-artifact@v3
